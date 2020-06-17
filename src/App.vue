@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <h1>2001</h1>
     <router-view></router-view>
 
     <div class="tabs">
       <router-link to="/home" tag="span" active-class="on">首页</router-link>
       <router-link to="/find" tag="span" active-class="on">发现</router-link>
+      <router-link to="/cart" tag="span" active-class="on">购物车</router-link>
       <router-link to="/user" tag="span" active-class="on">我的</router-link>
+      <!-- <span @click="handleClick('/home')">首页</span>
+      <span @click="handleClick('/find')">发现</span>
+      <span @click="handleClick('/user')">我的</span>-->
     </div>
   </div>
 </template>
@@ -18,6 +21,15 @@ export default {
   name: "App",
   components: {
     // HelloWorld
+  },
+  mounted() {
+    console.log(this.$route);
+    console.log(this.$router);
+  },
+  methods: {
+    // handleClick(i){
+    //   this.$router.push(i)
+    // }
   }
 };
 </script>
@@ -30,36 +42,26 @@ body {
   width: 100%;
   height: 100%;
 }
-.app {
-  width: 100%;
+#app {
   height: 100%;
+  width: 100%;
   position: relative;
 }
-.tabs {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: 80px;
+#app .tabs {
   display: flex;
+  position: absolute;
+  bottom: 0; 
+  left: 0;
+  right: 0;
 }
-.tabs span {
+#app .tabs span {
   flex: 1;
-  text-align: center;
   border: 1px solid #ccc;
+  text-align: center;
+  height: 80px;
   line-height: 80px;
 }
-.tabs span.on {
+#app .tabs span.on {
   color: red;
-}
-.box {
-  position: absolute;
-  bottom: 120px;
-  right: 0;
-}
-.box1 {
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 </style>
